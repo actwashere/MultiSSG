@@ -9,3 +9,7 @@ Change the configurable variables, then run the script.
 Once the script is running, press the `INS` button, then follow the instructions in the pop up box.
 
 To reset, press `PG UP`. You can change these hotkeys at the bottom of the script.
+
+## Credits
+Some autoresetter code from [Pjagada's SSG Script](https://github.com/pjagada/minecraftahk)
+Some instance switching / managing code from [Specnr's Wall & Multi Instance scripts](https://github.com/Specnr)
