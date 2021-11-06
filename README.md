@@ -22,6 +22,7 @@ There are, unfortuantely, some limitations to this script:
 - Macro sometimes breaks if a lot of good seeds are loaded at the same time
 - Manually have to enter the saves directories
 - On initial load, you have to do some extra steps in order for the script to work.
+- There is NO fullscreen support yet
 
 ## How To
 Make sure you have OBS open.
