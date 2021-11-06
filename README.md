@@ -23,6 +23,7 @@ There are, unfortuantely, some limitations to this script:
 - Manually have to enter the saves directories
 - On initial load, you have to do some extra steps in order for the script to work.
 - There is NO fullscreen support yet
+- Anything more then 3 instances can get a little scuffed, but usually the macro fixes itself (I cannot playtest above 3 instances, so lmk if you get problems above there)
 
 ## How To
 Make sure you have OBS open.
