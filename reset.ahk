@@ -14,13 +14,7 @@ global centerPointZ := A_Args[11]
 global old_worlds := A_Args[12]
 global obs_delay := A_Args[13]
 
-console(savesDirectory)	
 SetKeyDelay, 1
-
-console(text)
-{
-	; this is here for debugging
-}
 
 CreateWorld() {
 	sleep, title_delay
@@ -196,7 +190,6 @@ Loop {
 		sleep, auto_reset_delay
 		spawnAlert()
 		WinActivate, ahk_id %pid%
-		console("good" + inst_num)
 		break
 	} else {
 		checkForPause()
