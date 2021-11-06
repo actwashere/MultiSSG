@@ -1,5 +1,7 @@
 # MultiSSG
 An AHK script for Multi Instance 1.17 SSG
+I haven't heavily tested this script, so expect it to be a little bit glitchy. It should work reliably enough, though.
+If you want a video tutorial on how to set it up, click [here](https://youtu.be/xj_uRs_kyhc). Otherwise, scroll down to the how-to section.
 Scroll down for a how-to.
 
 ## Features
