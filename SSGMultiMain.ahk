@@ -4,9 +4,9 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 SetKeyDelay, -1
 
-global save_directories := ["", ""] ; no backslash at end of file name
+global save_directories := ["D:\Games\multimc\instances\1.17.11\.minecraft\saves", "D:\Games\multimc\instances\1.17 ssg\.minecraft\saves"] ; no backslash at end of file name
 global instance_number := 2 ; put the number of instances your playing with here 
-global old_worlds := "" ; do NOT put "\" at the end of this string
+global old_worlds := "D:\Games\multimc\instances\oldworlds" ; do NOT put "/" at the end of this string
 global seed := "-3294725893620991126" ; 1.17 SSG seed is the default
 global title_delay := 300 ; Raise number if getting stuck on title screen
 global world_list_delay := 1100 ; Raise number if getting stuck in world list screen
@@ -23,7 +23,11 @@ global centerPointZ := 194.5 ; this is the z coordinate of that certain point (b
 ; dont configure
 global PIDs := []
 global active_id := ""
-; global pause_resets_on_load := True ; Greatly slows down resets, however improves performance (I think). This will pause resets on all other instances when you get an instance with a good spawn. 
+
+console(text)
+{
+	; this is here for debugging
+}
 
 getSpawnPoint(inst) ; Taken from Pjagada's 1.16 plus reset
 {
@@ -89,48 +93,24 @@ SetTitles() { ; Taken from Specnrs Wall 1
 	}
 }
 
-;global inst_reset_count := 0
 ExitWorld()
 {
-	;inst_reset_count+=1
-	if (FileExist("pause.txt")) {
-		FileDelete, pause.txt
-	}
+	console("Exiting the world...")
+	deletePauseFile()
 	
 	if (index := GetActiveInstanceNum()) > 0
 	{
 		pid := PIDs[index]
 		curr_dirr := save_directories[index]
-		Run, reset.ahk %pid% %vert_delay% %world_list_delay% %title_delay% %index% %seed% "%curr_dirr%" %auto_reset_delay% %radius% %centerPointX% %centerPointZ% %old_worlds% %pause_resets_on_load%
-	}
-
-	;if (inst_reset_count = instance_number) {
-		;getGoodSpawn()
-	;}
-}
-
-/*
-getGoodSpawn() {
-	Loop {
-		if (FileExist("pause.txt")) {
-			FileRead, testt, pause.txt
-			while (!testt) {
-				FileRead, testt, pause.txt
-			}
-			if (testt = "1") {
-				testt := 1
-			} else if (testt = "2") {
-				testt := 2
-			}
-			ActivateInstance(testt)
-			break
-		}
+		console(curr_dirr)
+		Run, reset.ahk %pid% %vert_delay% %world_list_delay% %title_delay% %index% %seed% "%curr_dirr%" %auto_reset_delay% %radius% %centerPointX% %centerPointZ% %old_worlds% %obs_delay%
 	}
 }
-*/
 
 ActivateInstance(idx) { ; temp (i think)
+	console(idx)
 	pid := PIDs[idx]
+	console(pid)
 	send {Numpad%idx% down}
 	sleep, %obs_delay%
 	send {Numpad%idx% up}
@@ -139,10 +119,13 @@ ActivateInstance(idx) { ; temp (i think)
 	send {LButton}
 }
 
-if (FileExist("pause.txt")) {
-	FileDelete, pause.txt
+deletePauseFile() {
+	if (FileExist("pause.tmp")) {
+		FileDelete, pause.tmp
+	}
 }
 
+deletePauseFile()
 global setup := false
 Ins::
 	if (setup = false) {
@@ -163,8 +146,8 @@ Ins::
 return
 
 PgUp:: ; This will reset and move all worlds that don't start with a '_'
-ExitWorld()
-send {F12 down}
-sleep, %obs_delay%
-send {F12 up}
+	ExitWorld()
+	send {F12 down}
+	sleep, %obs_delay%
+	send {F12 up}
 return
