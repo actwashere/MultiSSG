@@ -12,4 +12,5 @@ To reset, press `PG UP`. You can change these hotkeys at the bottom of the scrip
 
 ## Credits
 Some autoresetter code from [Pjagada's SSG Script](https://github.com/pjagada/minecraftahk)
+
 Some instance switching / managing code from [Specnr's Wall & Multi Instance scripts](https://github.com/Specnr)
