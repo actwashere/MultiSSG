@@ -10,6 +10,8 @@ Once the script is running, press the `INS` button, then follow the instructions
 
 To reset, press `PG UP`. You can change these hotkeys at the bottom of the script.
 
+This relies on having OBS open, and having the [1.17 Fast Reset mod](https://github.com/jan-leila/FastReset/releases/tag/1.17.1-1.0.0).
+
 ## Credits
 Some autoresetter code from [Pjagada's SSG Script](https://github.com/pjagada/minecraftahk)
 
