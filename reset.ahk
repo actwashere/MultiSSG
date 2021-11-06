@@ -144,7 +144,6 @@ inList(xCoord, zCoord, fileName) ; Taken from Pjagada's 1.16 plus reset
 
 moveWorlds() { ; basically taken from Specnrs script
 	global dir := savesDirectory . "\"
-	console(dir)
 	Loop, Files, %dir%*, D
 	{
 		If (InStr(A_LoopFileName, "New World") || InStr(A_LoopFileName, "Speedrun #")) {
