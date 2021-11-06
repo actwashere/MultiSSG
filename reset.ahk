@@ -12,9 +12,15 @@ global radius := A_Args[9]
 global centerPointX := A_Args[10]
 global centerPointZ := A_Args[11]
 global old_worlds := A_Args[12]
-global pause_reset := A_Args[13]
+global obs_delay := A_Args[13]
 
+console(savesDirectory)	
 SetKeyDelay, 1
+
+console(text)
+{
+	; this is here for debugging
+}
 
 CreateWorld() {
 	sleep, title_delay
@@ -144,6 +150,7 @@ inList(xCoord, zCoord, fileName) ; Taken from Pjagada's 1.16 plus reset
 
 moveWorlds() { ; basically taken from Specnrs script
 	global dir := savesDirectory . "\"
+	console(dir)
 	Loop, Files, %dir%*, D
 	{
 		If (InStr(A_LoopFileName, "New World") || InStr(A_LoopFileName, "Speedrun #")) {
@@ -154,38 +161,45 @@ moveWorlds() { ; basically taken from Specnrs script
 	}
 }
 
-checkToPause() {
-	if (pause_reset) {
-		Loop {
-			if (!FileExist("pause.txt")) {
-				break
-			} else {
-				sleep, 1000
-			}
-		}
-	}
+checkForPause() {
+	while (FileExist("pause.tmp")) {
+		sleep, 1000
+	}	
 }
 
-pauseResets() {
-	if (pause_reset) {
-		; checkToPause()
-		sleep, inst_num
-		FileAppend, %inst_num%, pause.txt
-	}
+pauseOtherResets() {
+	checkForPause()
+	FileAppend, , pause.tmp
+}
+
+spawnAlert() {
+	if (FileExist("spawnready.mp3")) {
+		SoundPlay, spawnready.mp3
+	}	
+	else {
+		SoundPlay *16
+	}	
 }
 
 WinActivate, OBS
 ExitWorld()
 Loop {
-	; checkToPause()
 	moveWorlds()
 	CreateWorld()
 	WaitForLoadIn()
 	if (goodSpawn()) {
 		WaitForLoadIn()
-		; pauseResets()
+		pauseOtherResets()
+		Send, {Numpad%inst_num% down}
+		sleep, %obs_delay%
+		Send, {Numpad%inst_num% up}
+		sleep, auto_reset_delay
+		spawnAlert()
+		WinActivate, ahk_id %pid%
+		console("good" + inst_num)
 		break
 	} else {
+		checkForPause()
 		ControlSend, ahk_parent, {Esc}, ahk_id %pid%
 		ExitWorld()
 	}
