@@ -4,9 +4,9 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 SetKeyDelay, -1
 
-global save_directories := ["D:\Games\multimc\instances\1.17.11\.minecraft\saves", "D:\Games\multimc\instances\1.17 ssg\.minecraft\saves"] ; do NOT put "\" at the end of your file name.
+global save_directories := [""] ; do NOT put "\" at the end of your file name.
 global instance_number := 2 ; put the number of instances your playing with here 
-global old_worlds := "D:\Games\multimc\instances\oldworlds" ; do NOT put "\" at the end of this string
+global old_worlds := "" ; do NOT put "\" at the end of this string
 global seed := "-3294725893620991126" ; 1.17 SSG seed is the default
 global title_delay := 300 ; Raise number if getting stuck on title screen
 global world_list_delay := 1100 ; Raise number if getting stuck in world list screen
