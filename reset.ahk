@@ -156,12 +156,13 @@ moveWorlds() { ; basically taken from Specnrs script
 
 checkForPause() {
 	while (FileExist("pause.tmp")) {
-		sleep, 1000
+		sleep, 500
 	}	
 }
 
 pauseOtherResets() {
 	checkForPause()
+	sleep, inst_num
 	FileAppend, , pause.tmp
 }
 
