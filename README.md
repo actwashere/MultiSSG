@@ -9,6 +9,7 @@ Scroll down for a how-to.
 - Multi instance resetting, with no limit on how many instances you can use (as far as I'm aware).
 - Automatically switch to an instance with a good spawn.
 - Automatically moves worlds to an 'Old Worlds' folder.
+- A sound will play when a world is ready to be played (Sometimes, the OBS scene will switch a while before the Minecraft window is maximized, this is normal).
 
 Auto Resetter Features:
 - This is near the same as [Pjagada's SSG Script](https://github.com/pjagada/minecraftahk)
@@ -24,6 +25,8 @@ There are, unfortuantely, some limitations to this script:
 - On initial load, you have to do some extra steps in order for the script to work.
 - There is NO fullscreen support yet
 - Anything more then 3 instances can get a little scuffed, but usually the macro fixes itself (I cannot playtest above 3 instances, so lmk if you get problems above there)
+- If you want IGT, use Specnr's livesplit setup for his [wall macro](https://github.com/Specnr/MultiResetWall).
+- Does not reset from title screen
 
 ## How To
 Make sure you have OBS open.
@@ -36,6 +39,15 @@ To reset, press `PG UP`. You can change these hotkeys at the bottom of the scrip
 Resetting currently does NOT work from the title screen
 
 This relies on having OBS open, and having the [1.17 Fast Reset mod](https://github.com/jan-leila/FastReset/releases/tag/1.17.1-1.0.0).
+
+## Road Map
+- Full screen support
+- Dragon perch macro
+- Better livesplit support
+- Title screen resets
+- Flint rate tracking
+- Easier setup
+- Instance freezing*
 
 ## Credits
 Some autoresetter code from [Pjagada's SSG Script](https://github.com/pjagada/minecraftahk)
