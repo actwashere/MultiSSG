@@ -3,6 +3,7 @@ An AHK script for Multi Instance 1.17 SSG
 I haven't heavily tested this script, so expect it to be a little bit glitchy. It should work reliably enough, though.
 If you want a video tutorial on how to set it up, click [here](https://youtu.be/xj_uRs_kyhc). Otherwise, scroll down to the how-to section.
 Scroll down for a how-to.
+OBS scene switching is currently broken
 
 ## Features
 - Reset worlds from in-game.
@@ -43,11 +44,12 @@ This relies on having OBS open, and having the [1.17 Fast Reset mod](https://git
 ## Road Map
 - Full screen support
 - Dragon perch macro
-- Better livesplit support
+- Better livesplit support (Probably an option to automatically change the config file of Livesplit, letting in game time work on all instances)
+- Change settings on reset
 - Title screen resets
 - Flint rate tracking
 - Easier setup
-- Instance freezing*
+- Instance freezing (Not sure how helpful this will be with SSG)
 
 ## Credits
 Some autoresetter code from [Pjagada's SSG Script](https://github.com/pjagada/minecraftahk)
