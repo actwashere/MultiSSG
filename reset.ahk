@@ -12,7 +12,6 @@ global radius := A_Args[9]
 global centerPointX := A_Args[10]
 global centerPointZ := A_Args[11]
 global old_worlds := A_Args[12]
-global obs_delay := A_Args[13]
 
 SetKeyDelay, 1
 
@@ -66,6 +65,7 @@ getSpawnPoint() ; Taken from Pjagada's 1.16 plus reset
 
 goodSpawn() ; Taken from Pjagada's 1.16 plus reset
 {
+	sleep, inst_num * 100
 	coords := getSpawnPoint()
 	xCoord := coords[1]
 	zCoord := coords[2]
@@ -154,47 +154,26 @@ moveWorlds() { ; basically taken from Specnrs script
 	}
 }
 
-checkForPause() {
-	while (FileExist("pause.tmp")) {
-		sleep, 500
-	}	
+pauseResets() {
+	FileAppend, %inst_num%`n, pause.txt
 }
 
-pauseOtherResets() {
-	checkForPause()
-	sleep, inst_num
-	FileAppend, , pause.tmp
-}
-
-spawnAlert() {
-	if (FileExist("spawnready.mp3")) {
-		SoundPlay, spawnready.mp3
-	}	
-	else {
-		SoundPlay *16
-	}	
-}
-
-WinActivate, OBS
 ExitWorld()
 Loop {
 	moveWorlds()
 	CreateWorld()
+	sleep, %auto_reset_delay%
 	WaitForLoadIn()
 	if (goodSpawn()) {
-		WaitForLoadIn()
-		pauseOtherResets()
-		Send, {Numpad%inst_num% down}
-		sleep, %obs_delay%
-		Send, {Numpad%inst_num% up}
-		sleep, auto_reset_delay
-		spawnAlert()
-		WinActivate, ahk_id %pid%
+		pauseResets()
 		break
 	} else {
-		checkForPause()
+		while (FileExist("pause.txt")) {
+			sleep, 500
+		}
 		ControlSend, ahk_parent, {Esc}, ahk_id %pid%
 		ExitWorld()
 	}
 }
+
 ExitApp
