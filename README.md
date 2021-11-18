@@ -12,6 +12,7 @@ OBS scene switching is currently broken.
 - Automatically switch to an instance with a good spawn.
 - Automatically moves worlds to an 'Old Worlds' folder.
 - A sound will play when a world is ready to be played (Sometimes, the OBS scene will switch a while before the Minecraft window is maximized, this is normal).
+- Full screen support
 
 Auto Resetter Features:
 - This is near the same as [Pjagada's SSG Script](https://github.com/pjagada/minecraftahk)
@@ -22,11 +23,8 @@ Auto Resetter Features:
 
 There are, unfortuantely, some limitations to this script:
 - All resets will be paused when a good SSG seed is loaded
-- Macro sometimes breaks if a lot of good seeds are loaded at the same time
 - Manually have to enter the saves directories
 - On initial load, you have to do some extra steps in order for the script to work.
-- There is NO fullscreen support yet
-- Anything more then 3 instances can get a little scuffed, but usually the macro fixes itself (I cannot playtest above 3 instances, so lmk if you get problems above there)
 - If you want IGT, use Specnr's livesplit setup for his [wall macro](https://github.com/Specnr/MultiResetWall).
 - Does not reset from title screen
 
