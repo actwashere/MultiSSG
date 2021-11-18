@@ -1,5 +1,9 @@
 ﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 
+; If you're here because you use a different language, then go to the 
+; "ExitWorld()" function, it's around line 125.
+; Otherwise, do not edit this script.
+
 global pid := A_Args[1]
 global vert_delay := A_Args[2]
 global world_list_delay := A_Args[3]
@@ -117,7 +121,12 @@ WaitForLoadIn() ; Taken from Pjagada's 1.16 plus reset
 
 
 ExitWorld() {
-	ControlSend, ahk_parent, {Esc} {Tab 9} {Enter}, ahk_id %pid%
+	WinGetTitle, title, ahk_id %pid%
+	if (InStr(title, "Multiplayer")) { ; EDIT THIS, change Multiplayer to whatever the Minecraft Title is when you've opened a world to LAN
+		ControlSend, ahk_parent, {Esc} {Tab 8} {Enter}, ahk_id %pid%
+	} else {
+		ControlSend, ahk_parent, {Esc} {Tab 9} {Enter}, ahk_id %pid%
+	}
 }
 
 inList(xCoord, zCoord, fileName) ; Taken from Pjagada's 1.16 plus reset
