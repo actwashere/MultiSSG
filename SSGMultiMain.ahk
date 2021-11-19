@@ -4,6 +4,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance, Force
 SetKeyDelay, 1
+; Script version 1.2.1
 
 ; If your using a different language, please go to edit reset.ahk and follow the instructions there. 
 ; Also, check lines 90-110 and follow the instructions there.

@@ -1,4 +1,5 @@
 ﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; Script version 1.2.1
 
 ; If you're here because you use a different language, then go to the 
 ; "ExitWorld()" function, it's around line 125.
