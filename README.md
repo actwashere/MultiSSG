@@ -1,3 +1,5 @@
+**Will not be adding anymore features to this macro, however if you find any bugs let me know. I will continue to fix them! Also, feel free to contact me on Discord for tech support: act#8127**
+
 # MultiSSG
 An AHK script for Multi Instance 1.17 SSG
 I haven't heavily tested this script, so expect it to be a little bit glitchy. It should work reliably enough, though.
@@ -24,7 +26,7 @@ There are, unfortuantely, some limitations to this script:
 - All resets will be paused when a good SSG seed is loaded
 - Manually have to enter the saves directories
 - On initial load, you have to do some extra steps in order for the script to work.
-- If you want IGT, use Specnr's livesplit setup for his [wall macro](https://github.com/Specnr/MultiResetWall).
+- If you want IGT, I recommend using this [timer mod](https://github.com/RedLime/SpeedRunIGT/releases)
 - Does not reset from title screen
 
 ## How To
